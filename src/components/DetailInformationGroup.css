@@ -1,0 +1,12 @@
+.root {
+    flex-grow: 1;
+  }
+  .paper {
+    padding: 10px;
+    text-align: center;
+    color: hsl(0, 100%, 95%);
+  }
+
+  .table {
+    min-width: 650
+  }
