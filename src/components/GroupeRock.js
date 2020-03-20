@@ -11,7 +11,7 @@ import "./GroupeRock.css";
 
 import metallica from "../data/mettalica";
 import MembreGroupeRock from "./MembreGroupeRock";
-import data from '../data/mettalica.json';
+import data from '../data/mettalica';
 
 const GroupeRock = () => {
   let listeDesMembres = metallica.members.map((m, index) => (
