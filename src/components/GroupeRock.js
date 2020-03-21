@@ -12,6 +12,7 @@ import "./GroupeRock.css";
 import metallica from "../data/mettalica";
 import data from '../data/mettalica';
 import DetailInformationGroup from './DetailInformationGroup';
+import Album from './Album';
 
 function formatArrayData(arraydata) {
   var formatData='';
@@ -97,7 +98,7 @@ const GroupeRock = () => {
  </nav>
 
 <DetailInformationGroup description={data.abstract} members={data.members} />
-  
+  <Album albumList={data.albums}/>
     </div>
   );
 };

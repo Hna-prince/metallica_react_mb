@@ -15,7 +15,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import "./Album.css";
-/*const useStyles = makeStyles(theme => ({
+
+
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
    
@@ -28,7 +30,7 @@ import "./Album.css";
   media: {
     height: 140,
   },
-  paper: {
+  card: {
     maxWidth: 345,
  marginBottom: 50,
   },
@@ -36,37 +38,46 @@ import "./Album.css";
     maxHeight: 200, overflow: 'auto'
   }
 }));
-*/
+
+
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function Album() {
- {/*} const classes = useStyles();*/}
-
+export default function Album({albumList}) {
+  
+  const classes = useStyles();
   return (
     
-    <div className="root">
+    <div className={classes.root}>
       <Grid container spacing={24} >
+      {albumList.map(album => (
         <Grid item xs={3}>
             
-          <Card  className="paper"  >
+          <Card  className={classes.card}  >
             <CardActionArea>
-              <CardMedia
-                className="media"
-                image="/static/images/cards/contemplative-reptile.jpg"
+              <CardMedia 
+                className={classes.media}
+                image={ album.cover !=undefined  &&  album.cover.medium}
                 title="Contemplative Reptile"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
+                
+                  {album.title}
+                  
+                  
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p" className="contentListSong">
+                <Typography variant="body2" color="textSecondary" component="p" className={classes.contentListSong} >
                 
                 <List component="nav" aria-label="secondary mailbox folders">
-                  <ListItem button>
-                    <ListItemText primary="1 . efzefz" />
-                  </ListItem>
+                  {album.songs.map(song => (
+                    <ListItem button>
+                      <ListItemText primary={"1 - "+song.title} />
+                    </ListItem>
+                  ))}
+
+
                   <ListItemLink href="#simple-list">
                     <ListItemText primary="Spam" />
                   </ListItemLink>
@@ -88,7 +99,7 @@ export default function Album() {
           </Card>
     
         </Grid>
-          
+      ))}
       </Grid>
     </div>
   );

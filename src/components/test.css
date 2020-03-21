@@ -1,0 +1,17 @@
+.root {
+    flex-grow: 1;
+   
+    
+  }
+  
+  .media {
+    height: 140;
+  }
+  .card {
+    max-width: 345;
+    margin-bottom: 50;
+  }
+  .contentListSong {
+    max-height: 200;
+     overflow: 'auto';
+  }
