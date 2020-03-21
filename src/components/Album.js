@@ -15,12 +15,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import "./Album.css";
+import { blue } from 'color-name';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-   
+    backgroundColor:'white',
     
   },
   
@@ -29,13 +30,26 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 140,
+    backgroundSize: 'contain',
+    backgroundColor:'#f2f2f2',
   },
   card: {
-    maxWidth: 345,
+    width: 300,
+    height: '410px',
  marginBottom: 50,
   },
   contentListSong :{
     maxHeight: 200, overflow: 'auto'
+  },
+  albumTitle: {
+   backgroundColor:'#3f51b5',
+   color: 'white',
+   fontSize: '25px',
+  },
+
+  albumContainer:{
+    marginRight:'14px',
+    marginLeft:'14px',
   }
 }));
 
@@ -50,9 +64,11 @@ export default function Album({albumList}) {
   return (
     
     <div className={classes.root}>
-      <Grid container spacing={24} >
+    <div className={classes.albumTitle} > <p> Albums</p></div>
+    <div className={classes.albumContainer}>
+      <Grid container spacing={2} >
       {albumList.map(album => (
-        <Grid item xs={3}>
+        <Grid item >
             
           <Card  className={classes.card}  >
             <CardActionArea>
@@ -71,36 +87,35 @@ export default function Album({albumList}) {
                 <Typography variant="body2" color="textSecondary" component="p" className={classes.contentListSong} >
                 
                 <List component="nav" aria-label="secondary mailbox folders">
-                  {album.songs.map(song => (
+                  {album.songs.map((song, index) => (
                     <ListItem button>
-                      <ListItemText primary={"1 - "+song.title} />
+                      <ListItemText primary={(index+1)+"- "+song.title} />
                     </ListItem>
                   ))}
 
 
-                  <ListItemLink href="#simple-list">
+                  {/*<ListItemLink href="#simple-list">
                     <ListItemText primary="Spam" />
-                  </ListItemLink>
+                  </ListItemLink>*/}
                 </List>
-                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                  across all continents except Antarctica
-                  
+                
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
+          {/*  <CardActions>
               <Button size="small" color="primary">
                 Share
               </Button>
               <Button size="small" color="primary">
                 Learn More
               </Button>
-            </CardActions>
+          </CardActions>*/}
           </Card>
     
         </Grid>
       ))}
       </Grid>
-    </div>
+   </div>
+   </div>
   );
 }

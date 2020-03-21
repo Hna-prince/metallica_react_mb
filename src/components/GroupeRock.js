@@ -39,7 +39,7 @@ const GroupeRock = () => {
       <h1>{data.name}</h1></Paper>
     </Grid>
     <Grid item xs={9}>
-      <Paper className="paper">
+      
       
         <TableContainer component={Paper}>
         <Table className="table" aria-label="simple table">
@@ -74,12 +74,7 @@ const GroupeRock = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Paper>
-    </Grid>
- 
-  </Grid>
-
- <nav class="externalLinks">
+      <nav class="externalLinks">
  <span  title="Wikipedia"><div><img src="https://wasabi.i3s.unice.fr/img/wikipedia_icon.svg" alt="Wikipedia"/></div></span>
  <span  title="Official website"><div><img src="https://wasabi.i3s.unice.fr/img/website_icon.svg" alt="Official website"/></div></span>
  <span title="Facebook"><div><img src="https://wasabi.i3s.unice.fr/img/facebook_icon.svg" alt="Facebook"/></div></span>
@@ -96,8 +91,13 @@ const GroupeRock = () => {
  <span title="RateYourMusic"><div><img src="https://wasabi.i3s.unice.fr/img/rateyourmusic_icon.svg" alt="RateYourMusic"/></div></span>
  <span title="SoundCloud"><div><img src="https://wasabi.i3s.unice.fr/img/soundcloud_icon.svg" alt="SoundCloud"/></div></span>
  </nav>
+    </Grid>
+ 
+  </Grid>
 
-<DetailInformationGroup description={data.abstract} members={data.members} />
+
+
+<DetailInformationGroup  description={data.abstract} members={data.members} />
   <Album albumList={data.albums}/>
     </div>
   );
