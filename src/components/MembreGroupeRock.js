@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 function formatArrayData(arraydata) {
   var formatData='';
   for (const  value of arraydata) {
-    console.log(" V "+value);
     formatData=formatData+value+', ';
   }
   return formatData;
@@ -16,9 +15,6 @@ function formatArrayData(arraydata) {
 
 const MembreGroupeRock = ({ membre }) => (
   
- 
- 
-
 
       <TableRow key={membre.name}>
         <TableCell component="th" scope="row">

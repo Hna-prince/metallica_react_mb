@@ -14,7 +14,7 @@
     min-width: 650
   }
 
-  .externalLinks {
+  .links {
     background: #fff;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -24,21 +24,21 @@
     margin: 5px;
 }
 
-.span-externalLinks {
+.span-links {
   background: #fafafa;
   font-size: 16px;
   text-align: justify;
   padding: 20px;
 }
 
-.externalLinks span div {
+.links span div {
   width: 30px;
   height: 30px;
   font-size: 0;
   padding: 10px;
 }
 
-.externalLinks span div img {
+.links span div img {
   width: 100%;
   height: 100%;
 }

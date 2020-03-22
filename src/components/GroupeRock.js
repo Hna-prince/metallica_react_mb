@@ -8,8 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Grid from '@material-ui/core/Grid';
 import "./GroupeRock.css";
-
-import metallica from "../data/mettalica";
 //import data from '../data/mettalica';
 import DetailInformationGroup from './DetailInformationGroup';
 import Album from './Album';
@@ -19,7 +17,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 function formatArrayData(arraydata) {
   var formatData='';
   for (const  value of arraydata) {
-    console.log(" V "+value);
     formatData=formatData+value+', ';
   }
   return formatData;
@@ -35,10 +32,6 @@ function formatArrayData(arraydata) {
       .then(res => res.json())
       .then(
         (result) => {
-        /*  this.setState({
-            isLoaded: true,
-            items: result.items
-          });*/
           this.setState({
             isLoaded: true,
             data: result,
@@ -46,10 +39,6 @@ function formatArrayData(arraydata) {
           console.log(this.state.data);
         },
         (error) => {
-        /*  this.setState({
-            isLoaded: true,
-            error
-          });*/
           console.log("ERREUR FECTH");
         }
       )
@@ -63,10 +52,7 @@ function formatArrayData(arraydata) {
       isLoaded: false,
       data: {}
     };
-    console.log("ID = " + props.match.params.name);
     this.groupName = props.match.params.name;
-
-    console.log(" ????? "+this.state .data);
     this.loadGroupData();
   }
   componentDidMount() {
@@ -123,23 +109,23 @@ render(){
           </TableBody>
         </Table>
       </TableContainer>
-      <nav className="externalLinks">
- <span  title="Wikipedia"><div><img src="https://wasabi.i3s.unice.fr/img/wikipedia_icon.svg" alt="Wikipedia"/></div></span>
- <span  title="Official website"><div><img src="https://wasabi.i3s.unice.fr/img/website_icon.svg" alt="Official website"/></div></span>
- <span title="Facebook"><div><img src="https://wasabi.i3s.unice.fr/img/facebook_icon.svg" alt="Facebook"/></div></span>
- <span title="MySpace"><div><img src="https://wasabi.i3s.unice.fr/img/myspace_icon.svg" alt="MySpace"/></div></span>
- <span  title="Twitter"><div><img src="https://wasabi.i3s.unice.fr/img/twitter_icon.svg" alt="Twitter"/></div></span>
- <span  title="Amazon"><div><img src="https://wasabi.i3s.unice.fr/img/amazon_icon.svg" alt="Amazon"/></div></span>
- <span  title="iTunes"><div><img src="https://wasabi.i3s.unice.fr/img/itunes_icon.svg" alt="iTunes"/></div></span>
- <span title="AllMusic"><div><img src="https://wasabi.i3s.unice.fr/img/allmusic_icon.svg" alt="AllMusic"/></div>
- </span><span  title="Discogs"><div><img src="https://wasabi.i3s.unice.fr/img/discogs_icon.svg" alt="Discogs"/></div></span>
- <span title="Music Brainz"><div><img src="https://wasabi.i3s.unice.fr/img/musicbrainz_icon.svg" alt="Music Brainz"/></div></span>
- <span  title="Youtube"><div><img src="https://wasabi.i3s.unice.fr/img/youtube_icon.svg" alt="Youtube"/></div></span>
- <span  title="Spotify"><div><img src="https://wasabi.i3s.unice.fr/img/spotify_icon.svg" alt="Spotify"/></div></span>
- <span  title="PureVolume"><div><img src="https://wasabi.i3s.unice.fr/img/purevolume_icon.svg" alt="PureVolume"/></div></span>
- <span title="RateYourMusic"><div><img src="https://wasabi.i3s.unice.fr/img/rateyourmusic_icon.svg" alt="RateYourMusic"/></div></span>
- <span title="SoundCloud"><div><img src="https://wasabi.i3s.unice.fr/img/soundcloud_icon.svg" alt="SoundCloud"/></div></span>
- </nav>
+      <nav className="links">
+        <span  title="Wikipedia"><div><img src="https://wasabi.i3s.unice.fr/img/wikipedia_icon.svg" alt="Wikipedia"/></div></span>
+        <span  title="Official website"><div><img src="https://wasabi.i3s.unice.fr/img/website_icon.svg" alt="Official website"/></div></span>
+        <span title="Facebook"><div><img src="https://wasabi.i3s.unice.fr/img/facebook_icon.svg" alt="Facebook"/></div></span>
+        <span title="MySpace"><div><img src="https://wasabi.i3s.unice.fr/img/myspace_icon.svg" alt="MySpace"/></div></span>
+        <span  title="Twitter"><div><img src="https://wasabi.i3s.unice.fr/img/twitter_icon.svg" alt="Twitter"/></div></span>
+        <span  title="Amazon"><div><img src="https://wasabi.i3s.unice.fr/img/amazon_icon.svg" alt="Amazon"/></div></span>
+        <span  title="iTunes"><div><img src="https://wasabi.i3s.unice.fr/img/itunes_icon.svg" alt="iTunes"/></div></span>
+        <span title="AllMusic"><div><img src="https://wasabi.i3s.unice.fr/img/allmusic_icon.svg" alt="AllMusic"/></div>
+        </span><span  title="Discogs"><div><img src="https://wasabi.i3s.unice.fr/img/discogs_icon.svg" alt="Discogs"/></div></span>
+        <span title="Music Brainz"><div><img src="https://wasabi.i3s.unice.fr/img/musicbrainz_icon.svg" alt="Music Brainz"/></div></span>
+        <span  title="Youtube"><div><img src="https://wasabi.i3s.unice.fr/img/youtube_icon.svg" alt="Youtube"/></div></span>
+        <span  title="Spotify"><div><img src="https://wasabi.i3s.unice.fr/img/spotify_icon.svg" alt="Spotify"/></div></span>
+        <span  title="PureVolume"><div><img src="https://wasabi.i3s.unice.fr/img/purevolume_icon.svg" alt="PureVolume"/></div></span>
+        <span title="RateYourMusic"><div><img src="https://wasabi.i3s.unice.fr/img/rateyourmusic_icon.svg" alt="RateYourMusic"/></div></span>
+        <span title="SoundCloud"><div><img src="https://wasabi.i3s.unice.fr/img/soundcloud_icon.svg" alt="SoundCloud"/></div></span>
+      </nav>
     </Grid>
  
   </Grid>

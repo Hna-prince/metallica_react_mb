@@ -39,15 +39,10 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 500,
-  },
-}));
+
 
 export default function FullWidthTabs() {
-  const classes = useStyles();
+
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -83,9 +78,6 @@ export default function FullWidthTabs() {
     )
   }
 
-  let writeInSearchInput = (e) => {
-      console.log("HELLLO");
-  }
 const alphabetList=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   return (
     <div className='root'>
@@ -129,9 +121,9 @@ const alphabetList=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
         </TabPanel>
       </SwipeableViews>
 
-{ artistsList.length != 0 &&
-      <ArtistList artists={artistsList} />
-}
+        { artistsList.length != 0 &&
+              <ArtistList artists={artistsList} />
+        }
     </div>
 
   );

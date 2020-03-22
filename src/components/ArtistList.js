@@ -23,7 +23,6 @@ export default function ArtistList({ artists }) {
 
   function selectGroup(name) {
     console.log(" NEW "+name);
-    //props.history.push('/rock')
     window.location.href='/artist/'+name;
       }
 

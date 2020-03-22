@@ -69,36 +69,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function ToolBar(props) {
 
-
-
-    
   const classes = useStyles();
  
   const [searchResult, setSearchResult] = useState( [] );
   
  let writeInSearchInput = (e) => {
-  console.log(" ENTER"+ e.target.value );
     fetch("https://wasabi.i3s.unice.fr/search/fulltext/"+ e.target.value )
       .then(res => res.json())
       .then(
         (result) => {
-        /*  this.setState({
-            isLoaded: true,
-            items: result.items
-          });*/
-
-          console.log(" GO GO SEARCH");
-          console.log(result);
           setSearchResult(result);
         },
-        // Remarque : il est important de traiter les erreurs ici
-        // au lieu d'utiliser un bloc catch(), pour ne pas passer à la trappe
-        // des exceptions provenant de réels bugs du composant.
         (error) => {
-        /*  this.setState({
-            isLoaded: true,
-            error
-          });*/
           console.log("ERREUR FECTH");
         }
       )
@@ -106,10 +88,8 @@ export default function ToolBar(props) {
 }
 
 let selectGroup =(event, newValue) => {
-  console.log(" NEW "+newValue.name);
-  //props.history.push('/rock')
   window.location.href='/artist/'+newValue.name;
-    }
+}
 
 
   return (
@@ -136,16 +116,6 @@ let selectGroup =(event, newValue) => {
                         renderInput={params => <TextField  onChange={writeInSearchInput} {...params} label="     Search ..." variant="outlined" />}
                         onChange={selectGroup}
                   
-                       /* classes={{
-                          root: classes.inputRoot,
-                          input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}*/
-                        
-                        /*onChange={e => {
-                            const newMessageObj =  e.target.value ;
-                            this.writeInSearchInput(newMessageObj)// Now it works
-                          }}*/
              />     
           </div>
          
