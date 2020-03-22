@@ -68,14 +68,14 @@ export default function Album({albumList}) {
     <div className={classes.albumContainer}>
       <Grid container spacing={2} >
       {albumList.map(album => (
-        <Grid item >
+        <Grid item key= {album.title}>
             
           <Card  className={classes.card}  >
             <CardActionArea>
               <CardMedia 
                 className={classes.media}
                 image={ album.cover !=undefined  &&  album.cover.medium}
-                title="Contemplative Reptile"
+                title={album.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -86,9 +86,9 @@ export default function Album({albumList}) {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p" className={classes.contentListSong} >
                 
-                <List component="nav" aria-label="secondary mailbox folders">
+                <List aria-label="secondary mailbox folders">
                   {album.songs.map((song, index) => (
-                    <ListItem button>
+                    <ListItem button  key={song.title}>
                       <ListItemText primary={(index+1)+"- "+song.title} />
                     </ListItem>
                   ))}

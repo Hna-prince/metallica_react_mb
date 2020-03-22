@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    marginLeft:'40px',
+    marginRight:'40px',
   },
   paper: {
     padding: theme.spacing(2),
@@ -19,12 +21,18 @@ const useStyles = makeStyles(theme => ({
 export default function ArtistList({ artists }) {
   const classes = useStyles();
 
+  function selectGroup(name) {
+    console.log(" NEW "+name);
+    //props.history.push('/rock')
+    window.location.href='/artist/'+name;
+      }
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
        {artists.map( (arstist) => ( 
         <Grid key={arstist.name} item xs={3}>
-          <Paper className={classes.paper}>{arstist.name}</Paper>
+          <Paper className={classes.paper}   onClick={()=>selectGroup(arstist.name)}>{arstist.name}</Paper>
         </Grid>
        ))}
       </Grid>

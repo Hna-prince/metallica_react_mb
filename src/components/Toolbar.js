@@ -108,7 +108,7 @@ export default function ToolBar(props) {
 let selectGroup =(event, newValue) => {
   console.log(" NEW "+newValue.name);
   //props.history.push('/rock')
-  window.location.href='/rock/'+newValue.name;
+  window.location.href='/artist/'+newValue.name;
     }
 
 
@@ -118,7 +118,7 @@ let selectGroup =(event, newValue) => {
         <Toolbar>
          
           <Typography className={classes.title} variant="h6" noWrap>
-            Musique
+            Artists
           </Typography>
          
           <div className={classes.search}>

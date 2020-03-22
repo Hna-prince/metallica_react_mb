@@ -17,15 +17,15 @@ function App() {
     <div className="App">
     <Toolbar/>
       <BrowserRouter>
-        <Link to="/">Home</Link>
+      {/*} <Link to="/">Home</Link>
         &nbsp;
-        <Link to="/rock/Metallica">Groupe Rock</Link>
+        <Link to="/artist/Metallica">Groupe Rock</Link>
         <Link to="/ui">Test Material UI</Link>
         &nbsp;
         <Link to="/photos">Photos</Link>
         &nbsp;
         <Link to="/username">Username</Link>
-
+  */}
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/ui" component={TestMaterialUI}></Route>
         <Route path="/photos/:id" component={Photos}></Route>
@@ -33,7 +33,7 @@ function App() {
           path="/username"
           component={() => <Username name="Michel" age="54" />}
         />
-        <Route path="/rock/:name" component={GroupeRock} />
+        <Route path="/artist/:name" component={GroupeRock} />
       </BrowserRouter>
     </div>
   );

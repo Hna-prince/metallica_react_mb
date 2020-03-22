@@ -84,7 +84,7 @@ render(){
     
     <Grid item xs={3}>
       <Paper className="paper">
-      <img src={data.picture.medium} />
+      <img src= { data.picture !=undefined  ?  data.picture.medium : 'http://e-cdn-images.deezer.com/images/artist//250x250-000000-80-0-0.jpg'} />
       <h1>{data.name}</h1></Paper>
     </Grid>
     <Grid item xs={9}>
@@ -123,7 +123,7 @@ render(){
           </TableBody>
         </Table>
       </TableContainer>
-      <nav class="externalLinks">
+      <nav className="externalLinks">
  <span  title="Wikipedia"><div><img src="https://wasabi.i3s.unice.fr/img/wikipedia_icon.svg" alt="Wikipedia"/></div></span>
  <span  title="Official website"><div><img src="https://wasabi.i3s.unice.fr/img/website_icon.svg" alt="Official website"/></div></span>
  <span title="Facebook"><div><img src="https://wasabi.i3s.unice.fr/img/facebook_icon.svg" alt="Facebook"/></div></span>
