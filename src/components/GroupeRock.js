@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,9 +10,11 @@ import Grid from '@material-ui/core/Grid';
 import "./GroupeRock.css";
 
 import metallica from "../data/mettalica";
-import data from '../data/mettalica';
+//import data from '../data/mettalica';
 import DetailInformationGroup from './DetailInformationGroup';
 import Album from './Album';
+import { render } from "@testing-library/react";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function formatArrayData(arraydata) {
   var formatData='';
@@ -23,13 +25,60 @@ function formatArrayData(arraydata) {
   return formatData;
  };
 
+ class GroupeRock extends React.Component {
+ 
+  
+   loadGroupData=() =>{
+    const url='https://wasabi.i3s.unice.fr/search/artist/'+this.groupName ;
 
-const GroupeRock = () => {
+    fetch(url)
+      .then(res => res.json())
+      .then(
+        (result) => {
+        /*  this.setState({
+            isLoaded: true,
+            items: result.items
+          });*/
+          this.setState({
+            isLoaded: true,
+            data: result,
+          });
+          console.log(this.state.data);
+        },
+        (error) => {
+        /*  this.setState({
+            isLoaded: true,
+            error
+          });*/
+          console.log("ERREUR FECTH");
+        }
+      )
+  };
+  
+//const GroupeRock = () => {
+  groupName;
+  constructor(props) {
+		super(props); 
+    this.state = {
+      isLoaded: false,
+      data: {}
+    };
+    console.log("ID = " + props.match.params.name);
+    this.groupName = props.match.params.name;
 
-
-   
-
-  return (
+    console.log(" ????? "+this.state .data);
+    this.loadGroupData();
+  }
+  componentDidMount() {
+    
+  }
+  
+ 
+render(){
+  const { data, isLoaded } = this.state;
+  return  (
+    <>
+    {isLoaded ?(
     <div className='root'>
     <Grid container spacing={3}>
     
@@ -100,7 +149,15 @@ const GroupeRock = () => {
 <DetailInformationGroup  description={data.abstract} members={data.members} />
   <Album albumList={data.albums}/>
     </div>
+    ):(
+      <div className='root'>
+      <CircularProgress />
+      </div>
+    ) }
+    </>
   );
-};
+}
+//};
 
+ }
 export default GroupeRock;

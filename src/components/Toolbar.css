@@ -1,0 +1,10 @@
+.grow{
+    flex-grow: 1;
+  }
+  .menuButton {
+    margin-right: 2px;
+  }
+  .title{
+    display: none;
+    
+  }

@@ -1,0 +1,17 @@
+.alphabetLink{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 70%;
+    margin: auto;
+    padding: 10px 0;
+}
+.root{
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: white;
+    width: 500;
+}

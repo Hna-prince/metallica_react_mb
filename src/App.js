@@ -7,29 +7,33 @@ import Photos from "./components/Photos";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TestMaterialUI from "./components/TestMaterialUI";
 import GroupeRock from "./components/GroupeRock";
+import Toolbar from "./components/Toolbar";
+import Accueil from "./components/Accueil";
 
 function App() {
   let nom = "Hello Madagascar";
 
   return (
     <div className="App">
+    <Toolbar/>
       <BrowserRouter>
         <Link to="/">Home</Link>
         &nbsp;
-        <Link to="/rock">Groupe Rock</Link>
+        <Link to="/rock/Metallica">Groupe Rock</Link>
         <Link to="/ui">Test Material UI</Link>
         &nbsp;
         <Link to="/photos">Photos</Link>
         &nbsp;
         <Link to="/username">Username</Link>
-        <Route exact path="/" component={ListeHobbies}></Route>
+
+        <Route exact path="/" component={Accueil}></Route>
         <Route path="/ui" component={TestMaterialUI}></Route>
         <Route path="/photos/:id" component={Photos}></Route>
         <Route
           path="/username"
           component={() => <Username name="Michel" age="54" />}
         />
-        <Route path="/rock" component={GroupeRock} />
+        <Route path="/rock/:name" component={GroupeRock} />
       </BrowserRouter>
     </div>
   );
